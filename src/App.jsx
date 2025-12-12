@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 import WelcomeScreen from './components/WelcomeScreen';
 import ChatInterface from './components/ChatInterface';
 
-const SOCKET_URL = 'http://localhost:3001';
+const SOCKET_URL = 'https://random-chat-backend-szt1.onrender.com';
 
 function App() {
     const [socket, setSocket] = useState(null);
