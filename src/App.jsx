@@ -79,13 +79,13 @@ function App() {
     return (
         <div className="App">
             {partnerLeft && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-                    <div className="bg-slate-800 p-8 rounded-2xl border border-[rgba(255,255,255,0.2)] text-center max-w-sm w-full animate-[fadeIn_0.5s_ease-out_forwards] shadow-2xl">
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4">
+                    <div className="bg-slate-800 p-8 rounded-lg text-center max-w-sm w-full">
                         <h3 className="text-2xl font-bold text-white mb-2">Partner Disconnected</h3>
                         <p className="text-gray-400 mb-6">The stranger has left the chat.</p>
                         <button
                             onClick={() => { setPartnerLeft(false); setConnected(false); setWaiting(false); }}
-                            className="w-full py-3 bg-[#6366f1] hover:bg-indigo-600 text-white rounded-xl font-bold transition-transform transform hover:scale-105"
+                            className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-bold transition-colors"
                         >
                             Find New Stranger
                         </button>

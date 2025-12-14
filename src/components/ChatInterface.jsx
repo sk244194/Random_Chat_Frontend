@@ -30,7 +30,7 @@ const ChatInterface = ({ messages, onSendMessage, onDisconnect }) => {
 
     return (
         <div className="flex flex-col h-screen bg-slate-900 text-white relative">
-            <header className="p-4 bg-slate-800/80 backdrop-blur-md border-b border-gray-700 flex justify-between items-center shadow-md z-10">
+            <header className="p-4 bg-slate-800 border-b border-slate-700 flex justify-between items-center z-10">
                 <div className="flex items-center gap-3">
                     <div className="relative">
                         <FaUserCircle className="text-3xl text-gray-400" />
@@ -39,7 +39,7 @@ const ChatInterface = ({ messages, onSendMessage, onDisconnect }) => {
                     <div>
                         <h2 className="font-semibold text-lg">Stranger</h2>
                         <div className="text-xs text-green-400 flex items-center gap-1">
-                            <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span> Online
+                            <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span> Online
                         </div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@ const ChatInterface = ({ messages, onSendMessage, onDisconnect }) => {
                 </button>
             </header>
 
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gradient-to-b from-slate-900 to-slate-800">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-900">
                 {messages.length === 0 ? (
                     <div className="flex flex-col items-center justify-center h-full text-gray-500 opacity-50">
                         <FaRobot className="text-6xl mb-4" />
@@ -63,13 +63,13 @@ const ChatInterface = ({ messages, onSendMessage, onDisconnect }) => {
                         return (
                             <div
                                 key={index}
-                                className={`flex w-full ${isSelf ? 'justify-end' : 'justify-start'} animate-[slideUp_0.5s_ease-out_forwards]`}
+                                className={`flex w-full ${isSelf ? 'justify-end' : 'justify-start'}`}
                             >
                                 <div
-                                    className={`max-w-[80%] px-5 py-3 rounded-2xl shadow-md text-sm md:text-base leading-relaxed break-words
+                                    className={`max-w-[80%] px-4 py-2 rounded-lg text-sm md:text-base leading-relaxed break-words
                     ${isSelf
-                                            ? 'bg-gradient-to-br from-[#6366f1] to-indigo-600 text-white rounded-br-none'
-                                            : 'bg-slate-700 text-gray-100 rounded-bl-none border border-slate-600'
+                                            ? 'bg-indigo-600 text-white'
+                                            : 'bg-slate-700 text-white'
                                         }`}
                                 >
                                     {msg.text}
@@ -81,7 +81,7 @@ const ChatInterface = ({ messages, onSendMessage, onDisconnect }) => {
                 <div ref={messagesEndRef} />
             </div>
 
-            <div className="p-4 bg-slate-800/90 border-t border-gray-700 backdrop-blur-sm">
+            <div className="p-4 bg-slate-800 border-t border-slate-700">
                 <form
                     onSubmit={handleSubmit}
                     className="flex items-center gap-3 max-w-4xl mx-auto"
@@ -92,12 +92,12 @@ const ChatInterface = ({ messages, onSendMessage, onDisconnect }) => {
                         onChange={(e) => setInputText(e.target.value)}
                         onKeyDown={handleKeyPress}
                         placeholder="Type a message..."
-                        className="flex-1 bg-slate-700/50 border border-gray-600 text-white placeholder-gray-400 rounded-xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#6366f1] focus:border-transparent transition-all"
+                        className="flex-1 bg-slate-900 border border-slate-700 text-white placeholder-gray-500 rounded-lg px-4 py-2 focus:outline-none focus:border-indigo-500 transition-colors"
                     />
                     <button
                         type="submit"
                         disabled={!inputText.trim()}
-                        className="p-3 bg-[#6366f1] hover:bg-indigo-600 text-white rounded-xl shadow-lg transition-transform transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="p-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                         <FaPaperPlane />
                     </button>
